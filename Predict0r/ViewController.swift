@@ -13,7 +13,20 @@ class ViewController: UIViewController {
     
     // MARK:- Properties
     let apiKeys: APIKeys = readPlistData(filename: "SecretKeys", type: APIKeys.self) as! APIKeys
-    private lazy var swifter = Swifter(consumerKey: self.apiKeys.consumerKey, consumerSecret: self.apiKeys.secretKey)
+    private lazy var swifterInstance = Swifter(consumerKey: self.apiKeys.consumerKey, consumerSecret: self.apiKeys.secretKey)
+    
+    // Classifier Instance
+    let sentimentClassifier = TweetSentimentalClassifier()
+    
+    // Tweets Storage
+    var inputTweets: [TweetSentimentalClassifierInput] = []
+    var outputPredictions: [TweetSentimentalClassifierOutput] = []
+    
+    // Info to display
+    lazy var sentimentScore = 0
+    lazy var numberOfTweetsAnalyzed = 0
+    
+    // MARK:- Subviews
     
     // Name label
     private lazy var nameLabel: UILabel = {
@@ -87,7 +100,7 @@ class ViewController: UIViewController {
     // Predict Button
     private lazy var predictButton: UIButton = {
         
-        let b = UIButton()
+        let b = UIButton(type: .system)
         b.backgroundColor = .white
         b.setTitleColor(.systemGreen, for: .normal)
         b.setTitle("Predict", for: .normal)
@@ -96,11 +109,14 @@ class ViewController: UIViewController {
         b.layer.borderColor = UIColor.systemGreen.cgColor
         b.titleEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
+        // Measures
         b.setWidth(UIScreen.main.bounds.width / 3)
         b.setHeight(50)
-        b.titleLabel?.text = "Predict"
 
         b.layer.cornerRadius = 12
+        
+        // Action
+        b.addTarget(self, action: #selector(self.handlePredictButtonTap), for: .touchUpInside)
         
         return b
     } ()
@@ -123,18 +139,73 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // View Setup
         self.configureAppearence()
         self.setupSubviews()
+
+    }
+    
+    // MARK:- Actions
+    @objc private func handlePredictButtonTap() {
         
-        // API request
-        self.searchTweets()
+        if let searchText = self.nameTextField.text {
+            // API request
+            self.searchTweets(searchText: searchText)
+        }
     }
     
     // MARK:- API
-    private func searchTweets() {
+    private func searchTweets(searchText: String) {
         
-        swifter.searchTweet(using: "@Apple") { results, metadata in
-            print(results)
+        swifterInstance.searchTweet(using: searchText, lang: "en", count: 100, tweetMode: .extended) { results, metadata in
+            
+            for index in 0..<100 {
+                if let tweetText = results[index]["full_text"].string {
+                    let tweetForClassification = TweetSentimentalClassifierInput(text: tweetText)
+                    self.inputTweets.append(tweetForClassification)
+                }
+            }
+            
+            self.numberOfTweetsAnalyzed = self.inputTweets.count
+            print(self.inputTweets.count)
+            
+            // Make batch predictions
+            do {
+                let predictions = try self.sentimentClassifier.predictions(inputs: self.inputTweets)
+                
+                predictions.forEach {
+                    let sentiment = $0.label
+                    
+                    switch sentiment {
+                    case "Pos":
+                        self.sentimentScore += 1
+                    case "Neg":
+                        self.sentimentScore -= 1
+                    default:
+                        break
+                    }
+                }
+                
+                // Emoji for sentiment score
+                var emojiToDisplay = ""
+                switch self.sentimentScore {
+                case 20...:
+                    emojiToDisplay = "😍"
+                case 10...:
+                    emojiToDisplay = "😊"
+                case 0...:
+                    emojiToDisplay = "☺️"
+                case Int(-10)...:
+                    emojiToDisplay = "😐"
+                case Int(-20)...:
+                    emojiToDisplay = "😕"
+                default:
+                    emojiToDisplay = "😡"
+                }
+                
+            } catch let error {
+                print("There was an error making prediction \(error)")
+            }
         } failure: { error in
             print(error)
         }

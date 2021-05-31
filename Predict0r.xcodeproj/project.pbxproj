@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03D52384B295B0FE573303F3 /* Pods_Predict0r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB32FCEE0BF817832375D50 /* Pods_Predict0r.framework */; };
 		BC2F8A04265FFDCB00362080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A03265FFDCB00362080 /* AppDelegate.swift */; };
 		BC2F8A06265FFDCB00362080 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A05265FFDCB00362080 /* SceneDelegate.swift */; };
 		BC2F8A08265FFDCB00362080 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A07265FFDCB00362080 /* ViewController.swift */; };
@@ -59,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FB32FCEE0BF817832375D50 /* Pods_Predict0r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Predict0r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B28E75FA9C3E0A0AE53AC3 /* Pods-Predict0r.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predict0r.debug.xcconfig"; path = "Target Support Files/Pods-Predict0r/Pods-Predict0r.debug.xcconfig"; sourceTree = "<group>"; };
+		89B1D5022A05265A94ED52A2 /* Pods-Predict0r.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predict0r.release.xcconfig"; path = "Target Support Files/Pods-Predict0r/Pods-Predict0r.release.xcconfig"; sourceTree = "<group>"; };
 		BC2F8A00265FFDCB00362080 /* Predict0r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Predict0r.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2F8A03265FFDCB00362080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC2F8A05265FFDCB00362080 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8516712664F0F60005F28E /* SwifteriOS.framework in Frameworks */,
+				03D52384B295B0FE573303F3 /* Pods_Predict0r.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,7 @@
 				BC2F8A02265FFDCB00362080 /* Predict0r */,
 				BC2F8A01265FFDCB00362080 /* Products */,
 				BC8516272664E94F0005F28E /* Frameworks */,
+				C44FD7E0935FA63A654D936F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +139,7 @@
 		BC8516272664E94F0005F28E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FB32FCEE0BF817832375D50 /* Pods_Predict0r.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +172,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		C44FD7E0935FA63A654D936F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65B28E75FA9C3E0A0AE53AC3 /* Pods-Predict0r.debug.xcconfig */,
+				89B1D5022A05265A94ED52A2 /* Pods-Predict0r.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC2F8A14265FFDD000362080 /* Build configuration list for PBXNativeTarget "Predict0r" */;
 			buildPhases = (
+				7422D954C4266C10BFFBFEB3 /* [CP] Check Pods Manifest.lock */,
 				BC2F89FC265FFDCB00362080 /* Sources */,
 				BC2F89FD265FFDCB00362080 /* Frameworks */,
 				BC2F89FE265FFDCB00362080 /* Resources */,
+				36F09DB21F7DEE523E7E38E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,6 +292,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36F09DB21F7DEE523E7E38E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Predict0r/Pods-Predict0r-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Predict0r/Pods-Predict0r-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Predict0r/Pods-Predict0r-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7422D954C4266C10BFFBFEB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Predict0r-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC2F89FC265FFDCB00362080 /* Sources */ = {
@@ -421,6 +482,7 @@
 		};
 		BC2F8A15265FFDD000362080 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65B28E75FA9C3E0A0AE53AC3 /* Pods-Predict0r.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,6 +502,7 @@
 		};
 		BC2F8A16265FFDD000362080 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89B1D5022A05265A94ED52A2 /* Pods-Predict0r.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

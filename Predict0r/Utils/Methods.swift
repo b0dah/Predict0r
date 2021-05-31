@@ -16,7 +16,6 @@ public func readPlistData<T: Decodable>(filename: String, type: T.Type) -> Decod
         do {
             let data = try Data(contentsOf: url)
             let result = try PropertyListDecoder().decode(T.self, from: data)
-            
             return result
         } catch { print(error) }
     
