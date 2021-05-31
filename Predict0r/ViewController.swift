@@ -6,9 +6,14 @@
 //
 
 import UIKit
-
+import SwifteriOS
+ 
 
 class ViewController: UIViewController {
+    
+    // MARK:- Properties
+    let apiKeys: APIKeys = readPlistData(filename: "SecretKeys", type: APIKeys.self) as! APIKeys
+    private lazy var swifter = Swifter(consumerKey: self.apiKeys.consumerKey, consumerSecret: self.apiKeys.secretKey)
     
     // Name label
     private lazy var nameLabel: UILabel = {
@@ -26,6 +31,7 @@ class ViewController: UIViewController {
         
         let l = UILabel()
         l.font = .systemFont(ofSize: 140)
+        l.text = "🤤"
         
         return l
     } ()
@@ -120,8 +126,19 @@ class ViewController: UIViewController {
         self.configureAppearence()
         self.setupSubviews()
         
-        self.emojiLabel.text = "🤤"
-        self.predictButton.titleLabel?.text = "Predict"
+        // API request
+        self.searchTweets()
+    }
+    
+    // MARK:- API
+    private func searchTweets() {
+        
+        swifter.searchTweet(using: "@Apple") { results, metadata in
+            print(results)
+        } failure: { error in
+            print(error)
+        }
+
     }
 
     // MARK:- Helpers
