@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03D52384B295B0FE573303F3 /* Pods_Predict0r.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB32FCEE0BF817832375D50 /* Pods_Predict0r.framework */; };
+		BC04549E2666208B00287A76 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04549D2666208B00287A76 /* UIColorExtension.swift */; };
 		BC2F8A04265FFDCB00362080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A03265FFDCB00362080 /* AppDelegate.swift */; };
 		BC2F8A06265FFDCB00362080 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A05265FFDCB00362080 /* SceneDelegate.swift */; };
 		BC2F8A08265FFDCB00362080 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8A07265FFDCB00362080 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		1FB32FCEE0BF817832375D50 /* Pods_Predict0r.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Predict0r.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B28E75FA9C3E0A0AE53AC3 /* Pods-Predict0r.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predict0r.debug.xcconfig"; path = "Target Support Files/Pods-Predict0r/Pods-Predict0r.debug.xcconfig"; sourceTree = "<group>"; };
 		89B1D5022A05265A94ED52A2 /* Pods-Predict0r.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Predict0r.release.xcconfig"; path = "Target Support Files/Pods-Predict0r/Pods-Predict0r.release.xcconfig"; sourceTree = "<group>"; };
+		BC04549D2666208B00287A76 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BC2F8A00265FFDCB00362080 /* Predict0r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Predict0r.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2F8A03265FFDCB00362080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC2F8A05265FFDCB00362080 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				BC85161126627AC40005F28E /* UIViewExtension.swift */,
+				BC04549D2666208B00287A76 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -178,7 +181,6 @@
 				65B28E75FA9C3E0A0AE53AC3 /* Pods-Predict0r.debug.xcconfig */,
 				89B1D5022A05265A94ED52A2 /* Pods-Predict0r.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -343,6 +345,7 @@
 				BC8516762664F7D00005F28E /* APIKeys.swift in Sources */,
 				BC85167A2664F8780005F28E /* Methods.swift in Sources */,
 				BC2F8A08265FFDCB00362080 /* ViewController.swift in Sources */,
+				BC04549E2666208B00287A76 /* UIColorExtension.swift in Sources */,
 				BC85161226627AC40005F28E /* UIViewExtension.swift in Sources */,
 				BC2F8A04265FFDCB00362080 /* AppDelegate.swift in Sources */,
 				BC2F8A06265FFDCB00362080 /* SceneDelegate.swift in Sources */,
